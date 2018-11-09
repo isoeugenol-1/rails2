@@ -1,3 +1,83 @@
 // Place all the styles related to the blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.top_menu li {
+  float: left;
+  list-style: none;
+  width: auto;
+}
+.top_menu li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 15px;
+}
+.top_menu li a:hover {
+  text-decoration: underline;
+}
+li{
+    list-style:none;
+}
+ul{
+    padding:0;
+}
+.header{
+    font-size:20px;
+    font-weight:bold;
+    text-align:center;
+}
+.menu{
+    background-color:#012F4B;
+    color:#fff;
+}
+.menu li {
+    padding:3% 3%;
+    text-align:center;
+   
+}
+.contents{
+  margin-right:4.7%;
+  margin-left:4.7%;
+}
+.contents li{
+    background-color:#F3A7AB;
+    color:#fff;
+    padding:3% 3%;
+    box-sizing: border-box;
+    border: solid 1px #fff;
+}
+.topic{
+  margin:1%;
+  padding-bottom:20px;
+}
+.topic li{
+    margin:1%;
+    border-bottom: dotted 1px #333333;
+    background-color: #000;
+}
+.container{
+    margin-top:20px;
+    padding-bottom: 20px;
+}
+.row_A{
+    margin:3%;
+}
+.row_B{
+    margin:3%;
+}
+.image1{
+    width:80%;
+    height:50%;
+}
+.image2{
+    width:40%;
+    height:40%;
+}
+.image3{
+    width:40%;
+    height:40%;
+}
+.image4{
+    width:50%;
+    height:50%;
+}

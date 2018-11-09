@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
+  get    'top'      ,to: 'blogs#top'
   get    '/blogs/confirm'  ,to: 'blogs#confirm'
   get    '/blogs'          ,to: 'blogs#index'
   post   '/blogs'          ,to: 'blogs#create'
