@@ -1,26 +1,31 @@
 <center>
-<h1>ブログ一覧</h1>
-<p><%= notice %></p>
-<table>
-  <tr>
-    <th>タイトル</th>
-    <th>内容</th>
-  </tr>
-
-<% @blog.each do |blog| %>
-  <tr>
-    <td><%= blog.title %></td>
-    <td><%= blog.content %></td>
-  </tr>
-  <tr>
-    <td><button><%= link_to '確認', blog_path(blog.id) %></button></td>
-    <td><button><%= link_to "編集", edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
-    <td><button><%= link_to '削除', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></button></td>
-  </tr>
-<% end %>
-</table>
-
-<br>
-
-<button><%= link_to '投稿', new_blog_path %></button>
+  <div class="contents">
+    <div class="row">
+      <div class="col-xs-12 col-md-12">
+        <h1 class="col-xs-1 col-md-offset-3 col-md-6">ブログ一覧</h1>
+        <p class="col-xs-1 col-md-offset-3 col-md-6"><%= notice %></p>
+      </div>
+      <div class="col-xs-12 col-md-12">
+        <table>
+          <tr>
+            <th class="col-xs-1 col-md-offset-3 col-md-2">タイトル</th>
+            <th class="col-xs-1 col-md-offset-3 col-md-2">内容</th>
+          </tr>
+          <% @blog.each do |blog| %>
+          <tr>
+            <td class="col-xs-1 col-md-offset-3 col-md-2"><%= blog.title %></td>
+            <td class="col-xs-1 col-md-offset-3 col-md-2"><%= blog.content %></td>
+          </tr>
+          <tr>
+            <td class="col-xs-1 col-md-offset-3 col-md-2"><button><%= link_to '確認', blog_path(blog.id) %></button></td>
+            <td class="col-xs-1 col-md-offset-3 col-md-2"><button><%= link_to "編集", edit_blog_path(blog.id), data: { confirm: '本当に編集していいですか？' } %></button></td>
+            <td class="col-xs-1 col-md-offset-3 col-md-2"><button><%= link_to '削除', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></button></td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+  <br>
+  <button><%= link_to '投稿', new_blog_path %></button>
 </center>
