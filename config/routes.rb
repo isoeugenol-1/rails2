@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
+  get    'login'    ,to: 'users#new'
   get    'top'      ,to: 'blogs#top'
   get    '/blogs/confirm'  ,to: 'blogs#confirm'
   get    '/blogs'          ,to: 'blogs#index'
@@ -13,5 +14,8 @@ Rails.application.routes.draw do
   get    '/blogs/:id'      ,to: 'blogs#show'
   patch  '/blogs/:id'      ,to: 'blogs#update'
   delete '/blogs/:id'      ,to: 'blogs#destroy'
+  get 'sessions/new'
   resources :blogs
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users
 end
