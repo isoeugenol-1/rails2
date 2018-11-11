@@ -1,10 +1,9 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:edit, :update, :destroy]
-  before_action :current_user, only: [:show, :edit, :new, :destroy, :update]
+  before_action :login_check, only: [:show, :edit, :new, :destroy, :update]
   def index
     @blog = Blog.all
   end
-
   def new
     if params[:back]
       @blog = Blog.new(blog_params)
@@ -12,9 +11,7 @@ class BlogsController < ApplicationController
       @blog = Blog.new
     end
   end
-  
   def create
-    
     @blog = Blog.new(blog_params)
     if @blog.save
       redirect_to blogs_path, notice: "ブログを作成しました！"
@@ -22,10 +19,8 @@ class BlogsController < ApplicationController
       render 'new'
     end
   end
-
   def show
   end
-
   def edit
   end
   def destroy
@@ -43,24 +38,18 @@ class BlogsController < ApplicationController
     @blog = Blog.new(blog_params)
     render :new if @blog.invalid?
   end
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
-    if !@current_user
-      redirect_to new_session_path, notice: "ログインしてください"
-
-    else
-    end
-  end
-  
   
   private
-
   def blog_params
     params.require(:blog).permit(:title, :content)
   end
-  
   def set_blog
     @blog = Blog.find(params[:id])
   end
- 
+  def login_check
+    @login ||= User.find_by(id: session[:user_id])
+    if !@login
+      redirect_to new_session_path, notice: "ログインしてください"
+    end
+  end
 end
