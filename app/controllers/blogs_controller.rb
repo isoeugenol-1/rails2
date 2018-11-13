@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:edit, :update, :destroy]
+  before_action :set_blog, only: [:edit, :update, :destroy, :show]
   before_action :login_check, only: [:show, :edit, :new, :destroy, :update]
+  include ApplicationHelper
   def index
     @blog = Blog.all
   end
@@ -20,6 +21,7 @@ class BlogsController < ApplicationController
     end
   end
   def show
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
   def edit
   end
@@ -36,7 +38,6 @@ class BlogsController < ApplicationController
   end
   def confirm
     @blog = Blog.new(blog_params)
-    render :new if @blog.invalid?
   end
   
   private
@@ -46,10 +47,11 @@ class BlogsController < ApplicationController
   def set_blog
     @blog = Blog.find(params[:id])
   end
+  
   def login_check
-    @login ||= User.find_by(id: session[:user_id])
-    if !@login
-      redirect_to new_session_path, notice: "ログインしてください"
+    unless logged_in?
+      flash[:error] =  "ログインしてください"
+      redirect_to new_session_path
     end
   end
 end

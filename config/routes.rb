@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   patch  '/blogs/:id'      ,to: 'blogs#update'
   delete '/blogs/:id'      ,to: 'blogs#destroy'
   get 'sessions/new'
+  get 'favorites'         ,to: 'favorites#show'
   resources :blogs
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
+  resources :favorites, only: [:create, :destroy]
 end
