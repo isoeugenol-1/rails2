@@ -9,6 +9,8 @@ class FavoritesController < ApplicationController
     redirect_to blogs_url, notice: "#{favorite.blog.user.name}さんのブログをお気に入り解除しました"
   end
   def show
+    if logged_in?
       @favorite = current_user.favorite_blogs.all
+    end
   end
 end

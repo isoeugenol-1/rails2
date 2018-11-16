@@ -21,8 +21,8 @@
                 <button type="button" class="btn btn-default col-xs-4 col-md-4 col-lg-4"><%= link_to '削除', blog_path(blog.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></button>
               <% else %>
                 <button type="button" class="btn btn-default col-xs-5 col-md-5 col-lg-5"><%= link_to '確認', blog_path(blog.id) %></button>
-                <div class="col-xs-4 col-md-4 col-lg-4" ></div>
-                <div class="col-xs-4 col-md-4 col-lg-4"></div>
+                <div class="col-xs-5 col-md-5 col-lg-5" ></div>
+                <div class="col-xs-5 col-md-5 col-lg-5"></div>
               <% end %>
             <% end %>
           </div>
