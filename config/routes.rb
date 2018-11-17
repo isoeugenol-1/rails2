@@ -10,7 +10,6 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  resources :blogs
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   resources :favorites, only: [:create, :destroy]
