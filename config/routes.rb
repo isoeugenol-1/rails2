@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "tops#index"
   resources :contacts
   resources :blogs do
     collection do
