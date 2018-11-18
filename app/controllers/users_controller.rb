@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     def create
       @user = User.new(user_params)
       if @user.save
-        redirect_to top_path
+        redirect_to tops_path
       else
         render 'new'
       end
