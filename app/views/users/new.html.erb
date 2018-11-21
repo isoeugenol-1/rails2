@@ -11,18 +11,21 @@
     </div>
   <% end %>
 
-  
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
   <%= f.submit "Create my account" %>
 <% end %>

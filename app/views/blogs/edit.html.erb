@@ -3,7 +3,6 @@
     <div id="error_explanation">
       <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
       <ul>
-
       <% @blog.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
@@ -18,6 +17,10 @@
   <div class="blog_title">
     <%= form.label :content %>
     <%= form.text_field :content %>
+  </div>
+  <div class="blog_title">
+    <%= form.label :image %>
+    <%= form.file_field :image %>
   </div>
   <%= form.submit %>
 <% end %>

@@ -6,9 +6,13 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
-  resources :tops
+  resources :tops, only: [:index]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :users
+  resources :users do
+    collection do
+      post :confirm
+    end
+  end
   resources :favorites
   #mount LetterOpenerWeb::Engine, at: "/letter_opener"
 end
