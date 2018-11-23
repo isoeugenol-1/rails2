@@ -15,9 +15,8 @@
     <%= form.label :password_confirmation %>
     <%= form.password_field :password_confirmation %>
   </div>
-  <div class="field">
-    <%= form.label :image %>
-    <%= image_tag(@user.image.url) if @user.image.url %>
+  <div class="field col-md-12">
+    <%= form.label :image, class: 'col-md-offset-4 col-md-1' %>
     <%= form.file_field :image %>
   </div>
   <div class="actions">
